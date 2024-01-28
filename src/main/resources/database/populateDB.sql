@@ -17,3 +17,5 @@ insert into patients (uuid, FIO, birthdate) values (5, 'Русаков Генн�
 insert into tickets (id_doctor, id_patient, time_of_receipt) values (1,1,'2024-02-10 12:10')
 
 
+select * from doctors;
+select * from patients;

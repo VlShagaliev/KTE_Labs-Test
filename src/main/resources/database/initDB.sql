@@ -22,6 +22,3 @@ create table if not exists tickets
 			id_patient 		int							REFERENCES patients (id) NOT NULL,
 			time_of_receipt timestamp with time zone	NOT NULL
 );
-
-select * from doctors;
-select * from patients;
