@@ -4,7 +4,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.GregorianCalendar;
@@ -17,11 +19,13 @@ import java.util.GregorianCalendar;
         "timeOfReceipt",
         "durationInMinutes"
 })
+@NoArgsConstructor
+@AllArgsConstructor
 public class TimeSlot {
     @XmlElement(required = true)
-    protected int id_doctor;
+    private int id_doctor;
     @XmlElement(required = true)
-    protected GregorianCalendar timeOfReceipt;
+    private GregorianCalendar timeOfReceipt;
     @XmlElement(required = true)
-    protected int durationInMinutes;
+    private int durationInMinutes;
 }

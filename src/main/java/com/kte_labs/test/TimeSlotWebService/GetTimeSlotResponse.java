@@ -13,5 +13,5 @@ import lombok.Setter;
 @Setter
 public class GetTimeSlotResponse {
     @XmlElement(required = true)
-    protected String Message;
+    private String Message;
 }

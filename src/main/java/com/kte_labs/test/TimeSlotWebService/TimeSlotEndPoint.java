@@ -22,10 +22,12 @@ public class TimeSlotEndPoint {
     @ResponsePayload
     public GetTimeSlotResponse getTimeSlot(@RequestPayload GetTimeSlotRequest request) {
         GetTimeSlotResponse response = new GetTimeSlotResponse();
-        response.setMessage("Свободное время приема врача добавлено");
+        if(timeSlotRepository.addTimeSlotToList(new TimeSlot(request.getId_doctor(), request.getTimeOfReceipt(), request.getDurationInMinutes()))) {
+            response.setMessage("Свободное время приема врача добавлено");
+        } else {
+            response.setMessage("Данное время у этого врача занято");
+        }
+        timeSlotRepository.printAllTimeSlot();
         return response;
-    }
-    private void print(){
-
     }
 }
