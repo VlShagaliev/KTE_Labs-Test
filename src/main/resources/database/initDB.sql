@@ -1,7 +1,7 @@
 create table if not exists doctors
 (
 			id 				serial 						primary key,
-			uuid 			int							unique NOT NULL,
+			uuid 			uuid,
 			FIO 			varchar(80)					NOT NULL,
 			post 			varchar(80)					NOT NULL,
 			department 		varchar(80)					NOT NULL
@@ -10,7 +10,7 @@ create table if not exists doctors
 create table if not exists patients
 (
 			id 				serial 						primary key,
-			uuid 			int 						unique NOT NULL,
+			uuid 			uuid,
 			FIO 			varchar(80) 				NOT NULL,
 			birthdate 		date						NOT NULL
 );

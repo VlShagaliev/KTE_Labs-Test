@@ -1,4 +1,4 @@
-package com.kte_labs.test;
+package com.kte_labs.test.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
