@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kte_labs.com/test/TimeSlotWebService"
+           targetNamespace="http://kte_labs.com/test/TimeSlotWebService" elementFormDefault="qualified">
+
+    <xs:element name="getTimeSlotRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id_doctor" type="xs:integer"/>
+                <xs:element name="timeOfReceipt" type="xs:dateTime"/>
+                <xs:element name="durationInMinutes" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTimeSlotResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
