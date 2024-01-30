@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "Doctors")
 @Getter
@@ -18,7 +20,7 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
-    private int uuid;
+    private UUID uuid;
     private String FIO;
     private String departments;
     private String post;

@@ -1,21 +1,13 @@
 package com.kte_labs.test.Entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import org.springframework.context.annotation.Profile;
 
-@NonNull
-@Getter
-@Setter
-@AllArgsConstructor
-public class Ticket {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+@Entity
+@Table(name = "TICKETS")
+public class Ticket{
     private int id_doctor;
-    private int id_patient;
+    private int id_patients;
+    private int durationInMinutes;
 }
