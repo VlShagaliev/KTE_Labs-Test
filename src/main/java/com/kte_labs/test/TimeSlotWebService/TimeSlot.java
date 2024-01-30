@@ -14,7 +14,7 @@ import java.util.GregorianCalendar;
 @Getter
 @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "timeSLot", propOrder = {
+@XmlType(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "timeSlot", propOrder = {
         "id_doctor",
         "timeOfReceipt",
         "durationInMinutes"
@@ -22,10 +22,10 @@ import java.util.GregorianCalendar;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TimeSlot {
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "id_doctor", required = true)
     private int id_doctor;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "timeOfReceipt", required = true)
     private GregorianCalendar timeOfReceipt;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "durationInMinutes", required = true)
     private int durationInMinutes;
 }

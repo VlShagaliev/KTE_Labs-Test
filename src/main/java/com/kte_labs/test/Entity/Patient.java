@@ -7,11 +7,10 @@ import java.util.Calendar;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Patients")
-@NonNull
 @Getter
 @Setter
 @AllArgsConstructor
+@Table(name = "PATIENTS")
 public class Patient {
 
     @Id

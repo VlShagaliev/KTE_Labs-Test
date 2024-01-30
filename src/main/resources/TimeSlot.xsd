@@ -4,9 +4,7 @@
     <xs:element name="getTimeSlotRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="id_doctor" type="xs:integer"/>
-                <xs:element name="timeOfReceipt" type="xs:dateTime"/>
-                <xs:element name="durationInMinutes" type="xs:integer"/>
+                <xs:element name="timeSlot" type="tns:TimeSlot"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -18,4 +16,12 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="TimeSlot">
+        <xs:sequence>
+            <xs:element name="id_doctor" type="xs:integer"/>
+            <xs:element name="timeOfReceipt" type="xs:dateTime"/>
+            <xs:element name="durationInMinutes" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

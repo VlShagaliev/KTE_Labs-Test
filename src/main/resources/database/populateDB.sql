@@ -14,9 +14,4 @@ insert into patients (FIO, birthdate) values ('Коноплев Андрей П�
 insert into patients (FIO, birthdate) values ('Русаков Геннадий Валерьевич', '1978-10-12');
 
 
-insert into tickets (id_doctor, id_patient, time_of_receipt) values (3,4,'2024-02-10 12:10')
-
-
-select * from doctors;
-select * from patients;
-select * from tickets;
+insert into tickets (id_doctor, id_patient, time_of_receipt, duration_in_minutes) values (3,4,'2024-02-10 12:10', 10)

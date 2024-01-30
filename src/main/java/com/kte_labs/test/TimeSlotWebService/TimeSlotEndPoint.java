@@ -7,7 +7,6 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
-
 public class TimeSlotEndPoint {
     private static final String NAMESPACE_URI = "http://kte_labs.com/test/TimeSlotWebService";
 
@@ -22,8 +21,8 @@ public class TimeSlotEndPoint {
     @ResponsePayload
     public GetTimeSlotResponse getTimeSlot(@RequestPayload GetTimeSlotRequest request) {
         GetTimeSlotResponse response = new GetTimeSlotResponse();
-        if(timeSlotRepository.addTimeSlotToList(new TimeSlot(request.getId_doctor(), request.getTimeOfReceipt(), request.getDurationInMinutes()))) {
-            response.setMessage("Свободное время приема врача добавлено");
+        if (timeSlotRepository.addTimeSlotToList(request.getTimeSlot())) {
+            response.setMessage("Время приема врача добавлено");
         } else {
             response.setMessage("Данное время у этого врача занято");
         }

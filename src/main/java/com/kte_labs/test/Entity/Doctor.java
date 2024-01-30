@@ -11,7 +11,7 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Doctors")
+@Table(name = "DOCTORS")
 @Getter
 @Setter
 @AllArgsConstructor
