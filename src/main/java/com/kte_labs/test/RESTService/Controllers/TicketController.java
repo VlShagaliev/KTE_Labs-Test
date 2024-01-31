@@ -1,7 +1,7 @@
-package com.kte_labs.test.Controllers;
+package com.kte_labs.test.RESTService.Controllers;
 
-import com.kte_labs.test.DBRepository.TicketRepository;
-import com.kte_labs.test.Entity.Ticket;
+import com.kte_labs.test.RESTService.DBRepository.TicketRepository;
+import com.kte_labs.test.RESTService.Entity.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

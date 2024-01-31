@@ -1,6 +1,5 @@
-package com.kte_labs.test.TimeSlotWebService;
+package com.kte_labs.test.WebService;
 
-import com.kte_labs.test.Entity.TimeSlot;
 import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.Setter;

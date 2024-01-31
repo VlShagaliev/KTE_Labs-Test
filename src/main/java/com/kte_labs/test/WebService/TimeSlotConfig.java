@@ -1,4 +1,4 @@
-package com.kte_labs.test.TimeSlotWebService;
+package com.kte_labs.test.WebService;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

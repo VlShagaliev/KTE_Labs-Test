@@ -1,4 +1,4 @@
-package com.kte_labs.test.Entity;
+package com.kte_labs.test.WebService;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

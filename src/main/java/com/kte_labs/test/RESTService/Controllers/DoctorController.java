@@ -1,7 +1,7 @@
-package com.kte_labs.test.Controllers;
+package com.kte_labs.test.RESTService.Controllers;
 
-import com.kte_labs.test.DBRepository.DoctorRepository;
-import com.kte_labs.test.Entity.Doctor;
+import com.kte_labs.test.RESTService.DBRepository.DoctorRepository;
+import com.kte_labs.test.RESTService.Entity.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;

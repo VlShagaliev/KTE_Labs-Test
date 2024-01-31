@@ -1,8 +1,7 @@
-package com.kte_labs.test.Controllers;
+package com.kte_labs.test.RESTService.Controllers;
 
-import com.kte_labs.test.DBRepository.PatientRepository;
-import com.kte_labs.test.Entity.Patient;
-import com.kte_labs.test.Entity.Ticket;
+import com.kte_labs.test.RESTService.DBRepository.PatientRepository;
+import com.kte_labs.test.RESTService.Entity.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @RequestMapping("/patients")

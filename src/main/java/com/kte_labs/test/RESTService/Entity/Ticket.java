@@ -1,5 +1,6 @@
-package com.kte_labs.test.Entity;
+package com.kte_labs.test.RESTService.Entity;
 
+import com.kte_labs.test.WebService.TimeSlot;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
