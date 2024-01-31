@@ -10,15 +10,15 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 public class TimeSlotEndPoint {
     private static final String NAMESPACE_URI = "http://kte_labs.com/test/TimeSlotWebService";
     @Autowired
-    TimeSlotRepository timeSlotRepository;
-    public TimeSlotEndPoint(TimeSlotRepository timeSlotRepository) {
-        this.timeSlotRepository = timeSlotRepository;
+    TimeSlotService timeSlotService;
+    public TimeSlotEndPoint(TimeSlotService timeSlotService) {
+        this.timeSlotService = timeSlotService;
     }
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTimeSlotRequest")
     @ResponsePayload
     public GetTimeSlotResponse getTimeSlot(@RequestPayload GetTimeSlotRequest request) {
         GetTimeSlotResponse response = new GetTimeSlotResponse();
-        if (timeSlotRepository.addTimeSlotToList(request.getTimeSlot())) {
+        if (timeSlotService.addTimeSlotToList(request.getTimeSlot())) {
             response.setMessage("Время приема врача добавлено");
         } else {
             response.setMessage("Данное время у этого врача занято");

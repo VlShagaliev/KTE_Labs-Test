@@ -39,13 +39,4 @@ public class DoctorController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/{id_doctor}")
-    public ResponseEntity<?> deleteDoctorById(@Param("id_doctor") int id_doctor){
-        try {
-            doctorRepository.deleteById(id_doctor);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 }
