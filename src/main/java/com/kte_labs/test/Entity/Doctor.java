@@ -3,25 +3,27 @@ package com.kte_labs.test.Entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "DOCTORS")
+@Table(name = "doctors")
 @Getter
 @Setter
 @AllArgsConstructor
-@NonNull
+@NoArgsConstructor
 public class Doctor {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
+    @Column(name = "uuid")
     private UUID uuid;
+    @Column(name = "FIO")
     private String FIO;
-    private String departments;
+    @Column(name = "department")
+    private String department;
+    @Column(name = "post")
     private String post;
 }

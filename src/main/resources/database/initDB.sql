@@ -18,8 +18,8 @@ create table if not exists patients
 create table if not exists tickets
 (
 			id 				    serial						primary key,
-			id_doctor 		    int							REFERENCES doctors (id) NOT NULL,
-			id_patient 		    int							REFERENCES patients (id) NOT NULL,
+			id_doctor 		    integer						REFERENCES doctors (id) NOT NULL,
+			id_patient 		    integer,
 			time_of_receipt     timestamp with time zone	NOT NULL,
-			duration_in_minutes int                         NOT NULL
+			duration_in_minutes integer                     NOT NULL
 );

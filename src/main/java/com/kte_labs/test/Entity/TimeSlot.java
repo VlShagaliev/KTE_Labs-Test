@@ -1,4 +1,4 @@
-package com.kte_labs.test.TimeSlotWebService;
+package com.kte_labs.test.Entity;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -23,7 +23,7 @@ import java.util.GregorianCalendar;
 @AllArgsConstructor
 public class TimeSlot {
     @XmlElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "id_doctor", required = true)
-    private int id_doctor;
+    private Integer id_doctor;
     @XmlElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "timeOfReceipt", required = true)
     private GregorianCalendar timeOfReceipt;
     @XmlElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "durationInMinutes", required = true)

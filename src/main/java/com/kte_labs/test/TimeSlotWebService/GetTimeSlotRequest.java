@@ -1,9 +1,9 @@
 package com.kte_labs.test.TimeSlotWebService;
 
+import com.kte_labs.test.Entity.TimeSlot;
 import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @XmlRootElement(namespace = "http://kte_labs.com/test/TimeSlotWebService", name = "getTimeSlotRequest")
 @XmlAccessorType(XmlAccessType.FIELD)
