@@ -24,7 +24,7 @@ public class Patient {
     @Column(name = "FIO")
     private String FIO;
     @Column(name = "birthdate")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "asia/yekaterinburg")
     private Calendar birthdate;
 
 }
