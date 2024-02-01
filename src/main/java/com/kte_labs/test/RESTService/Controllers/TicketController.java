@@ -2,6 +2,7 @@ package com.kte_labs.test.RESTService.Controllers;
 
 import com.kte_labs.test.RESTService.Repository.TicketRepository;
 import com.kte_labs.test.RESTService.Entity.Ticket;
+import com.kte_labs.test.WebService.TimeSlot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,22 @@ public class TicketController {
     @Autowired
     TicketRepository ticketRepository;
 
+    @PostMapping("/slot/{id_slot}")
+    public ResponseEntity<Ticket> postTicket(@PathVariable("id_slot") int id_slot,
+                                             @RequestParam("id_patient") int id_patient,
+                                             @RequestParam("timeOfReceipt") String timeOfReceipt,
+                                             @RequestParam("durationInMinutes") int durationInMinutes) {
+        try {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = df.parse(timeOfReceipt);
+            GregorianCalendar dateOfReceipt = new GregorianCalendar();
+            dateOfReceipt.setTime(date);
+            TimeSlot timeSlot = new TimeSlot(id_patient,dateOfReceipt,durationInMinutes);
+            return new ResponseEntity<>(ticketRepository.saveAndFlush(new Ticket(timeSlot)), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets() {
         try {
