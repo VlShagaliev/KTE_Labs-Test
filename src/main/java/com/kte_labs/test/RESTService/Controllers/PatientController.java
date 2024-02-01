@@ -1,9 +1,8 @@
 package com.kte_labs.test.RESTService.Controllers;
 
-import com.kte_labs.test.RESTService.DBRepository.PatientRepository;
+import com.kte_labs.test.RESTService.Repository.PatientRepository;
 import com.kte_labs.test.RESTService.Entity.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

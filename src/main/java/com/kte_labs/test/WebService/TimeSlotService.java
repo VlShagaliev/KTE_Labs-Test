@@ -1,6 +1,6 @@
 package com.kte_labs.test.WebService;
 
-import com.kte_labs.test.RESTService.DBRepository.TicketRepository;
+import com.kte_labs.test.RESTService.Repository.TicketRepository;
 import com.kte_labs.test.RESTService.Entity.Ticket;
 
 import lombok.Getter;
