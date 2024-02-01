@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.UUID;
 
 @Entity
-@Table(name = "patients")
+@Table(name = "patients", schema = "public")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +18,7 @@ public class Patient {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Column(name = "uuid")
     private UUID uuid;
     @Column(name = "FIO")

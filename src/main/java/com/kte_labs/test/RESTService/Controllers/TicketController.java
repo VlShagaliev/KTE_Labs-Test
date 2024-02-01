@@ -20,7 +20,7 @@ public class TicketController {
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets() {
         try {
-            final List<Ticket> tickets = new ArrayList<>(ticketRepository.findAll());
+            final List<Ticket> tickets = ticketRepository.findAll();
             if (tickets.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
@@ -31,18 +31,18 @@ public class TicketController {
     }
 
     /*
-        Запрос отправляется по ссылке http://localhost:8080/tickets/{id_doctor}?date_receipt={date_receipt}
+        Запрос отправляется по ссылке http://localhost:8080/tickets/{id_doctor}?date_receipt={timeOfReceipt}
         date_receipt пишется в формате yyyy-MM-dd
          */
     @GetMapping("/{id_doctor}")
     public ResponseEntity<List<Ticket>> getTicketsByIdDoctor(@PathVariable(name = "id_doctor") int id_doctor,
-                                                             @RequestParam(name = "date_receipt") String date_receipt) {
+                                                             @RequestParam(name = "date_receipt") String timeOfReceipt) {
         try {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = df.parse(date_receipt);
+            Date date = df.parse(timeOfReceipt);
             Calendar dateOfReceipt = Calendar.getInstance();
             dateOfReceipt.setTime(date);
-            List<Ticket> ticketsByIdDoctor = new ArrayList<>(ticketRepository.findAll()
+            List<Ticket> ticketsByIdDoctor = ticketRepository.findAll()
                     .stream()
                     .filter(ticket -> (ticket.getId_doctor() == id_doctor)
                             && (ticket.getId_patient() == null)
@@ -50,7 +50,7 @@ public class TicketController {
                             && (ticket.getTimeOfReceipt().get(Calendar.MONTH) == dateOfReceipt.get(Calendar.MONTH))
                             && (ticket.getTimeOfReceipt().get(Calendar.DAY_OF_MONTH) == dateOfReceipt.get(Calendar.DAY_OF_MONTH))
                     )
-                    .toList());
+                    .toList();
             return new ResponseEntity<>(ticketsByIdDoctor, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
