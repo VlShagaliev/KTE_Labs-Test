@@ -17,7 +17,7 @@ import java.util.*;
 public class TicketController {
     @Autowired
     TicketRepository ticketRepository;
-
+    //тестовый метод POST для проверки работоспособности внесения данных в Ticket альтернативным способом
     @PostMapping("/slot/{id_slot}")
     public ResponseEntity<Ticket> postTicket(@PathVariable("id_slot") int id_slot,
                                              @RequestParam("id_patient") int id_patient,
