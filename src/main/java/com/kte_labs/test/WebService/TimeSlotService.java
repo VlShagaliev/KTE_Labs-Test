@@ -12,17 +12,19 @@ import java.util.Objects;
 @Getter
 @Service
 public class TimeSlotService {
+
     @Autowired
     private TicketRepository ticketRepository;
-
     public boolean addTimeSlotToList(TimeSlot timeSlot) {
         if (ticketRepository.findAll()
                 .stream()
                 .anyMatch(ticket -> ((Objects.equals(ticket.getId_doctor(), timeSlot.getId_doctor())) &&
-                        ((ticket.getTimeOfReceipt().getTime().getTime() + (long) ticket.getDurationInMinutes() * 60 * 1000) > timeSlot.getTimeOfReceipt().getTime().getTime())))) {
+                        ((ticket.getTimeOfReceipt().getTimeInMillis() + (long) ticket.getDurationInMinutes() * 60 * 1000) > timeSlot.getTimeOfReceipt().getTimeInMillis())
+                ))
+        ) {
             return false;
         }
-        ticketRepository.saveAndFlush(new Ticket(timeSlot));
+        ticketRepository.save(new Ticket(timeSlot));
         return true;
     }
 }
