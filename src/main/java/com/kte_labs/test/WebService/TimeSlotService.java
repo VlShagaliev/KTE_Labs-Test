@@ -1,13 +1,11 @@
 package com.kte_labs.test.WebService;
 
-import com.kte_labs.test.RESTService.Repository.TicketRepository;
 import com.kte_labs.test.RESTService.Entity.Ticket;
-
+import com.kte_labs.test.RESTService.Repository.TicketRepository;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Objects;
 
 @Getter

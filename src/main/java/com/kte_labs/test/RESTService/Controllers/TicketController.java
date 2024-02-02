@@ -1,7 +1,7 @@
 package com.kte_labs.test.RESTService.Controllers;
 
-import com.kte_labs.test.RESTService.Repository.TicketRepository;
 import com.kte_labs.test.RESTService.Entity.Ticket;
+import com.kte_labs.test.RESTService.Repository.TicketRepository;
 import com.kte_labs.test.WebService.TimeSlot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +17,7 @@ import java.util.*;
 public class TicketController {
     @Autowired
     TicketRepository ticketRepository;
+
     //тестовый метод POST для проверки работоспособности внесения данных в Ticket альтернативным способом
     @PostMapping("/slot/{id_slot}")
     public ResponseEntity<Ticket> postTicket(@PathVariable("id_slot") int id_slot,
@@ -28,12 +29,13 @@ public class TicketController {
             Date date = df.parse(timeOfReceipt);
             GregorianCalendar dateOfReceipt = new GregorianCalendar();
             dateOfReceipt.setTime(date);
-            TimeSlot timeSlot = new TimeSlot(id_patient,dateOfReceipt,durationInMinutes);
+            TimeSlot timeSlot = new TimeSlot(id_patient, dateOfReceipt, durationInMinutes);
             return new ResponseEntity<>(ticketRepository.saveAndFlush(new Ticket(timeSlot)), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets() {
         try {

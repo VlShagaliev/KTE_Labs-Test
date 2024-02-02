@@ -11,6 +11,7 @@ public class TimeSlotEndPoint {
     private static final String NAMESPACE_URI = "http://kte_labs.com/test/TimeSlotWebService";
     @Autowired
     TimeSlotService timeSlotService;
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTimeSlotRequest")
     @ResponsePayload
     public GetTimeSlotResponse getTimeSlot(@RequestPayload GetTimeSlotRequest request) {

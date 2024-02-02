@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.GregorianCalendar;
 
 @Entity
@@ -28,9 +29,10 @@ public class Ticket {
     private GregorianCalendar timeOfReceipt;
     @Column(name = "duration_in_minutes")
     private int durationInMinutes;
-    public Ticket(TimeSlot timeSlot){
-        this.id_doctor=timeSlot.getId_doctor();
-        this.timeOfReceipt =timeSlot.getTimeOfReceipt();
-        this.durationInMinutes =timeSlot.getDurationInMinutes();
+
+    public Ticket(TimeSlot timeSlot) {
+        this.id_doctor = timeSlot.getId_doctor();
+        this.timeOfReceipt = timeSlot.getTimeOfReceipt();
+        this.durationInMinutes = timeSlot.getDurationInMinutes();
     }
 }
