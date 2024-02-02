@@ -28,7 +28,7 @@ public class TimeSlotService {
         ) {
             return false;
         }
-        ticketRepository.save(new Ticket(timeSlot));
+        ticketRepository.saveAndFlush(new Ticket(timeSlot));
         return true;
     }
 }
