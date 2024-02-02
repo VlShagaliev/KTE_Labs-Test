@@ -10,15 +10,16 @@ import lombok.Setter;
 import java.util.GregorianCalendar;
 
 @Entity
-@Table(name = "tickets", schema = "public")
+@Table(name = "tickets")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Ticket {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true, nullable = false)
+    @SequenceGenerator(name = "tick_sequence", sequenceName = "tickets_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tick_sequence")
     private Integer id;
     @Column(name = "id_doctor")
     private Integer id_doctor;
