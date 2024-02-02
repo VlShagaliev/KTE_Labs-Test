@@ -19,7 +19,7 @@ import java.util.Optional;
 public class PatientController {
     @Autowired
     PatientRepository patientRepository;
-
+    //тестовый метод по получению списка всех пациентов
     @GetMapping
     public ResponseEntity<?> getAllPatients() {
         try {
@@ -33,10 +33,14 @@ public class PatientController {
         }
     }
 
-    @GetMapping("/{id_patients}")
-    public ResponseEntity<Patient> getPatientById(@PathVariable(name = "id_patients") int id_patients) {
+    /*
+    * Метод по получению карточки пациента по его id номеру
+    * Запрос отправляется по ссылке http://localhost:8080/patients/{id_patient}
+    * */
+    @GetMapping("/{id_patient}")
+    public ResponseEntity<Patient> getPatientById(@PathVariable(name = "id_patient") int id_patient) {
         try {
-            Optional<Patient> patientOptional = patientRepository.findById(id_patients);
+            Optional<Patient> patientOptional = patientRepository.findById(id_patient);
             return patientOptional.map(patient -> new ResponseEntity<>(patient, HttpStatus.OK)).
                     orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
         } catch (Exception e) {

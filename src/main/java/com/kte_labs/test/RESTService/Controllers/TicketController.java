@@ -35,7 +35,7 @@ public class TicketController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    //тестовый метод по получению списка всех тикетов
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets() {
         try {
@@ -50,6 +50,7 @@ public class TicketController {
     }
 
     /*
+        Метод по получению тикета по id доктора и требуемой даты
         Запрос отправляется по ссылке http://localhost:8080/tickets/{id_doctor}?date_receipt={timeOfReceipt}
         date_receipt пишется в формате yyyy-MM-dd
          */
@@ -77,6 +78,7 @@ public class TicketController {
     }
 
     /*
+    Метод обновления Тикета с добавлением к тикету id пациента
     Запрос отправляется по ссылке http://localhost:8080/tickets/slot/{id_slot}?id_patient={id_patient}
      */
     @PatchMapping("/slot/{id_slot}")

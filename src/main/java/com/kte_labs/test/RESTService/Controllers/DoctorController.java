@@ -20,6 +20,7 @@ public class DoctorController {
     @Autowired
     DoctorRepository doctorRepository;
 
+    //Тестовый метод по получению списка всех докторов
     @GetMapping
     public ResponseEntity<?> getAllDoctors() {
         try {
@@ -32,7 +33,10 @@ public class DoctorController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    /*
+     * Метод по получению карточки доктора по его id номеру
+     * Запрос отправляется по ссылке http://localhost:8080/doctors/{id_doctor}
+     * */
     @GetMapping("/{id_doctor}")
     public ResponseEntity<Doctor> getDoctorById(@PathVariable(name = "id_doctor") int id_doctor) {
         try {

@@ -14,14 +14,18 @@ public class TimeSlotService {
 
     @Autowired
     private TicketRepository ticketRepository;
-
+    /*
+    * Метод по добавлению тикета полученного из SOAP сервиса в БД с условием, что новый тикет не попадает в существующий тикет
+    * с учетом длительности приема врача
+    * */
     public boolean addTimeSlotToList(TimeSlot timeSlot) {
         if (ticketRepository.findAll()
                 .stream()
                 .anyMatch(ticket -> (Objects.equals(ticket.getId_doctor(), timeSlot.getId_doctor())) &&
                         (((ticket.getTimeOfReceipt().getTimeInMillis() + (long) ticket.getDurationInMinutes() * 60 * 1000)
                                 > timeSlot.getTimeOfReceipt().getTimeInMillis())
-                                && (ticket.getTimeOfReceipt().getTimeInMillis() < (timeSlot.getTimeOfReceipt().getTimeInMillis() + (long) timeSlot.getDurationInMinutes() * 60 * 1000)))
+                                && (ticket.getTimeOfReceipt().getTimeInMillis()
+                                    < (timeSlot.getTimeOfReceipt().getTimeInMillis() + (long) timeSlot.getDurationInMinutes() * 60 * 1000)))
                 )
         ) {
             return false;
